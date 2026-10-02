@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdadeiro ou Falso — Matemática 6º Ano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="cabecalho">
+    <h1>🧮 Matemática: Verdadeiro ou Falso</h1>
+    <p class="subtitulo">6º ano do Ensino Fundamental</p>
+  </header>
+
+  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+  <main class="conteudo">
+
+    <!-- ---------- TELA 1: INÍCIO ---------- -->
+    <section id="tela-inicio" class="tela ativa" aria-label="Tela inicial">
+      <div class="cartao">
+        <div class="emoji-topo">🎯</div>
+        <h2>Verdadeiro ou Falso?</h2>
+        <p class="descricao">
+          Leia a afirmação de matemática e responda <strong>rápido</strong>:
+          ela é <strong>verdadeira</strong> ou <strong>falsa</strong>?
+        </p>
+
+        <ul class="regras">
+          <li>⏱️ Você tem <strong>15 segundos</strong> por pergunta.</li>
+          <li>❤️ Você começa com <strong>3 vidas</strong>.</li>
+          <li>⭐ Cada acerto vale <strong>10 pontos</strong> (+5 de bônus se responder em até 5s).</li>
+          <li>🏁 São <strong>10 perguntas</strong> por partida.</li>
+        </ul>
+
+        <button id="btn-comecar" class="btn btn-principal">▶ Começar a jogar</button>
+      </div>
+    </section>
+
+    <!-- ---------- TELA 2: JOGO ---------- -->
+    <section id="tela-jogo" class="tela" aria-label="Tela do jogo">
+      <div class="cartao">
+
+        <!-- Painel de status -->
+        <div class="hud">
+          <div id="hud-vidas" class="hud-item" title="Vidas">❤️❤️❤️</div>
+          <div id="hud-pontos" class="hud-item" title="Pontos">⭐ 0</div>
+          <div id="hud-progresso" class="hud-item" title="Progresso">1/10</div>
+        </div>
+
+        <!-- Barra de tempo -->
+        <div class="barra-tempo">
+          <div id="barra-preenchimento" class="barra-preenchimento"></div>
+          <span id="tempo-texto" class="tempo-texto">15s</span>
+        </div>
+
+        <!-- Pergunta -->
+        <p id="numero-pergunta" class="numero-pergunta">Pergunta 1</p>
+        <h2 id="afirmacao" class="afirmacao">Carregando…</h2>
+
+        <!-- Botões de resposta -->
+        <div class="botoes-resposta">
+          <button class="btn btn-vf btn-verdadeiro" data-resposta="true">✔ VERDADEIRO</button>
+          <button class="btn btn-vf btn-falso" data-resposta="false">✘ FALSO</button>
+        </div>
+
+        <!-- Feedback -->
+        <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ---------- TELA 3: FIM DE JOGO ---------- -->
+    <section id="tela-fim" class="tela" aria-label="Tela de fim de jogo">
+      <div class="cartao">
+        <div id="emoji-fim" class="emoji-topo">🏆</div>
+        <h2 id="titulo-fim">Fim de jogo!</h2>
+        <p id="mensagem-fim" class="descricao"></p>
+
+        <div class="resultados">
+          <div class="resultado-item">
+            <span id="fim-pontos">0</span>
+            <small>pontos</small>
+          </div>
+          <div class="resultado-item">
+            <span id="fim-acertos">0</span>
+            <small>acertos</small>
+          </div>
+          <div class="resultado-item">
+            <span id="fim-erros">0</span>
+            <small>erros</small>
+          </div>
+        </div>
+
+        <button id="btn-reiniciar" class="btn btn-principal">🔄 Jogar de novo</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="rodape">
+    <p>Projeto educativo • Matemática 6º ano • HTML + CSS + JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
