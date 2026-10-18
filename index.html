@@ -3,107 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verdadeiro ou Falso — Matemática 6º Ano</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Oficina das Engrenagens — O Enigma da Máquina de Energia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ================= CABEÇALHO ================= -->
+  <!-- ============ FUNDO DECORATIVO ============ -->
+  <div class="fundo-fumaca" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="fundo-engrenagens" aria-hidden="true">
+    <span class="fg fg1">⚙</span>
+    <span class="fg fg2">⚙</span>
+    <span class="fg fg3">⚙</span>
+    <span class="fg fg4">⚙</span>
+  </div>
+
+  <!-- ============ CABEÇALHO ============ -->
   <header class="cabecalho">
-    <h1>🧮 Matemática: Verdadeiro ou Falso</h1>
-    <p class="subtitulo">6º ano do Ensino Fundamental</p>
+    <p class="sobretitulo">⚙ Oficina das Engrenagens ⚙</p>
+    <h1>O Enigma da Máquina de Energia</h1>
+    <p class="subtitulo">Matemática • 6º ano do Ensino Fundamental</p>
   </header>
 
-  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
   <main class="conteudo">
 
-    <!-- ---------- TELA 1: INÍCIO ---------- -->
-    <section id="tela-inicio" class="tela ativa" aria-label="Tela inicial">
-      <div class="cartao">
-        <div class="emoji-topo">🎯</div>
-        <h2>Verdadeiro ou Falso?</h2>
-        <p class="descricao">
-          Leia a afirmação de matemática e responda <strong>rápido</strong>:
-          ela é <strong>verdadeira</strong> ou <strong>falsa</strong>?
-        </p>
+    <!-- ================= TELA 1: BRIEFING ================= -->
+    <section id="tela-inicio" class="tela ativa" aria-label="Briefing inicial">
+      <div class="painel">
+        <div class="painel-topo">
+          <span class="led led-verde"></span>
+          <h2>Briefing do Engenheiro-Chefe</h2>
+          <span class="led led-ambar"></span>
+        </div>
 
-        <ul class="regras">
-          <li>⏱️ Você tem <strong>15 segundos</strong> por pergunta.</li>
-          <li>❤️ Você começa com <strong>3 vidas</strong>.</li>
-          <li>⭐ Cada acerto vale <strong>10 pontos</strong> (+5 de bônus se responder em até 5s).</li>
-          <li>🏁 São <strong>10 perguntas</strong> por partida.</li>
-        </ul>
+        <div class="painel-corpo">
+          <div class="emblema">⚙️</div>
 
-        <button id="btn-comecar" class="btn btn-principal">▶ Começar a jogar</button>
+          <p class="descricao">
+            A <strong>Grande Máquina de Energia</strong> da cidade apagou.
+            Você é o novo <strong>Jovem Engenheiro</strong> da oficina e precisa
+            recalibrar os circuitos antes que as células acabem.
+          </p>
+          <p class="descricao">
+            Analise cada cálculo no visor e gire a válvula:
+            <strong class="txt-estavel">SISTEMA ESTÁVEL</strong> se a afirmação estiver correta
+            ou <strong class="txt-anomalia">SOBRECARGA / ANOMALIA</strong> se houver erro.
+          </p>
+
+          <ul class="regras">
+            <li>⚡ Você tem <strong>3 células de energia</strong> — cada falha consome uma.</li>
+            <li>⏱️ <strong>20 segundos</strong> para analisar cada circuito.</li>
+            <li>🔩 A cada <strong>2 acertos</strong> você recebe uma peça para a máquina.</li>
+            <li>🧰 São <strong>3 ferramentas</strong> de engenheiro com usos limitados.</li>
+            <li>🏁 Ao todo, <strong>10 circuitos</strong> para reativar a cidade.</li>
+          </ul>
+
+          <button id="btn-comecar" class="btn btn-principal">🔧 Iniciar Calibragem</button>
+        </div>
       </div>
     </section>
 
-    <!-- ---------- TELA 2: JOGO ---------- -->
-    <section id="tela-jogo" class="tela" aria-label="Tela do jogo">
-      <div class="cartao">
+    <!-- ================= TELA 2: CONSOLE DA MÁQUINA ================= -->
+    <section id="tela-jogo" class="tela" aria-label="Console da Máquina de Energia">
+      <div class="console">
 
-        <!-- Painel de status -->
+        <!-- HUD -->
         <div class="hud">
-          <div id="hud-vidas" class="hud-item" title="Vidas">❤️❤️❤️</div>
-          <div id="hud-pontos" class="hud-item" title="Pontos">⭐ 0</div>
-          <div id="hud-progresso" class="hud-item" title="Progresso">1/10</div>
+          <div class="hud-item">
+            <span class="hud-rotulo">Energia</span>
+            <span class="hud-valor" id="hud-energia">⚡⚡⚡</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-rotulo">Watts</span>
+            <span class="hud-valor" id="hud-watts">0</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-rotulo">Circuito</span>
+            <span class="hud-valor" id="hud-progresso">01/10</span>
+          </div>
         </div>
 
-        <!-- Barra de tempo -->
-        <div class="barra-tempo">
-          <div id="barra-preenchimento" class="barra-preenchimento"></div>
-          <span id="tempo-texto" class="tempo-texto">15s</span>
+        <!-- MANÔMETRO + DESAFIO -->
+        <div class="linha-principal">
+
+          <div class="modulo-manometro">
+            <div class="manometro">
+              <div class="mostrador">
+                <div class="arco"></div>
+                <div class="ticks"></div>
+                <div class="rotulo rotulo-anomalia">ANOMALIA</div>
+                <div class="rotulo rotulo-estavel">ESTÁVEL</div>
+                <div class="ponteiro" id="ponteiro"></div>
+                <div class="eixo"></div>
+              </div>
+            </div>
+            <div class="status-maquina" id="status-maquina">AGUARDANDO LEITURA</div>
+            <div class="pressao-leitura" id="pressao-leitura">Pressão: 50%</div>
+          </div>
+
+          <div class="modulo-desafio">
+            <div class="etiqueta-circuito" id="numero-pergunta">CIRCUITO 01 / 10</div>
+            <div class="visor">
+              <p id="afirmacao">Carregando…</p>
+            </div>
+            <div class="barra-tempo">
+              <div class="barra-preenchimento" id="barra-preenchimento"></div>
+              <span class="tempo-texto" id="tempo-texto">20s</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Pergunta -->
-        <p id="numero-pergunta" class="numero-pergunta">Pergunta 1</p>
-        <h2 id="afirmacao" class="afirmacao">Carregando…</h2>
+        <!-- VÁLVULAS DE RESPOSTA -->
+        <div class="valvulas">
+          <button class="valvula valvula-estavel" id="btn-estavel" data-resposta="true">
+            <span class="valvula-led"></span>
+            <span class="valvula-icone">🟢</span>
+            <span class="valvula-titulo">Sistema Estável</span>
+            <span class="valvula-legenda">A afirmação está correta</span>
+          </button>
 
-        <!-- Botões de resposta -->
-        <div class="botoes-resposta">
-          <button class="btn btn-vf btn-verdadeiro" data-resposta="true">✔ VERDADEIRO</button>
-          <button class="btn btn-vf btn-falso" data-resposta="false">✘ FALSO</button>
+          <button class="valvula valvula-anomalia" id="btn-anomalia" data-resposta="false">
+            <span class="valvula-led"></span>
+            <span class="valvula-icone">🔴</span>
+            <span class="valvula-titulo">Sobrecarga / Anomalia</span>
+            <span class="valvula-legenda">Há um erro no cálculo</span>
+          </button>
         </div>
 
-        <!-- Feedback -->
-        <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+        <!-- FERRAMENTAS DO ENGENHEIRO -->
+        <div class="ferramentas">
+          <button class="ferramenta" id="tool-lente" title="Revela o passo a passo do cálculo">
+            <span class="ferr-icone">🔍</span>
+            <span class="ferr-nome">Lente de Análise Lógica</span>
+            <span class="ferr-usos" id="usos-lente">3</span>
+          </button>
+
+          <button class="ferramenta" id="tool-bateria" title="Absorve a próxima falha">
+            <span class="ferr-icone">⚡</span>
+            <span class="ferr-nome">Bateria de Emergência</span>
+            <span class="ferr-usos" id="usos-bateria">1</span>
+          </button>
+
+          <button class="ferramenta" id="tool-esquadro" title="+10 segundos de análise">
+            <span class="ferr-icone">📐</span>
+            <span class="ferr-nome">Esquadro de Precisão</span>
+            <span class="ferr-usos" id="usos-esquadro">2</span>
+          </button>
+        </div>
+
+        <!-- CADERNETA DE ESQUEMAS -->
+        <div class="caderneta" id="caderneta">
+          <div class="caderneta-topo">📓 Caderneta de Esquemas</div>
+          <div class="caderneta-conteudo" id="caderneta-conteudo">
+            <p class="caderneta-vazia">Use a Lente de Análise Lógica para revelar o passo a passo do cálculo.</p>
+          </div>
+        </div>
+
+        <!-- FEEDBACK -->
+        <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+
+        <!-- BANCADA DO INVENTOR -->
+        <div class="bancada">
+          <div class="bancada-topo">
+            <span>🔩 Bancada do Inventor</span>
+            <span id="bancada-contador">0/5</span>
+          </div>
+          <div class="slots" id="slots"></div>
+          <div class="aviso-peca" id="aviso-peca"></div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ---------- TELA 3: FIM DE JOGO ---------- -->
-    <section id="tela-fim" class="tela" aria-label="Tela de fim de jogo">
-      <div class="cartao">
-        <div id="emoji-fim" class="emoji-topo">🏆</div>
-        <h2 id="titulo-fim">Fim de jogo!</h2>
-        <p id="mensagem-fim" class="descricao"></p>
+    <!-- ================= TELA 3: MÁQUINA MONTADA ================= -->
+    <section id="tela-fim" class="tela" aria-label="Máquina montada">
+      <div class="console">
 
-        <div class="resultados">
-          <div class="resultado-item">
-            <span id="fim-pontos">0</span>
-            <small>pontos</small>
+        <div class="maquina" id="maquina">
+          <div class="maquina-topo">
+            <span class="eng e1">⚙️</span>
+            <span class="eng e2">⚙️</span>
+            <span class="eng e3">⚙️</span>
           </div>
-          <div class="resultado-item">
-            <span id="fim-acertos">0</span>
-            <small>acertos</small>
+          <div class="maquina-corpo">
+            <div class="nucleo" id="nucleo-visual">🔒</div>
           </div>
-          <div class="resultado-item">
-            <span id="fim-erros">0</span>
-            <small>erros</small>
+          <div class="leds-painel">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="faiscas" id="faiscas" aria-hidden="true"></div>
+        </div>
+
+        <div class="painel painel-resultado">
+          <div class="painel-topo">
+            <span class="led led-verde"></span>
+            <h2 id="titulo-fim">Máquina Reativada!</h2>
+            <span class="led led-ambar"></span>
+          </div>
+
+          <div class="painel-corpo">
+            <p class="descricao" id="mensagem-fim"></p>
+
+            <div class="resultados">
+              <div class="resultado-item"><span id="fim-watts">0</span><small>watts</small></div>
+              <div class="resultado-item"><span id="fim-acertos">0</span><small>acertos</small></div>
+              <div class="resultado-item"><span id="fim-erros">0</span><small>erros</small></div>
+            </div>
+
+            <div class="pecas-finais" id="pecas-finais"></div>
+
+            <button id="btn-reiniciar" class="btn btn-principal">🔄 Recalibrar a Máquina</button>
           </div>
         </div>
 
-        <button id="btn-reiniciar" class="btn btn-principal">🔄 Jogar de novo</button>
       </div>
     </section>
 
   </main>
 
-  <!-- ================= RODAPÉ ================= -->
   <footer class="rodape">
-    <p>Projeto educativo • Matemática 6º ano • Projeto de: Jean</p>
+    <p>⚙ Oficina das Engrenagens • Matemática 6º ano • Projeto feito por: Jean</p>
   </footer>
 
   <script src="script.js"></script>
